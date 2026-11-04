@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Faboolux Tools</title>
+<!-- Added Favicon -->
+<link rel="icon" type="image/webp" href="logo-1536x921-1.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -21,7 +23,6 @@
 
   /* ---------- header ---------- */
   .site-header { padding:28px 0; }
-  /* Changed to flex-end so the nav stays on the right after removing the logo */
   .bar { display:flex; align-items:center; justify-content:flex-end; gap:20px; flex-wrap:wrap; }
   nav ul { display:flex; gap:8px; margin:0; padding:0; list-style:none; flex-wrap:wrap; }
   nav a { display:inline-block; padding:10px 20px; border:1px solid #2c2d35; border-radius:999px; font-size:14px; font-weight:600;
@@ -37,8 +38,8 @@
   .intro p { margin:0; color:var(--muted); font-size:15px; }
   .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap:clamp(14px, 2vw, 28px); align-items:stretch; }
   
-  /* Added min-height: 480px to stretch the cards vertically */
-  .card { display:flex; flex-direction:column; background:var(--card); border:1px solid var(--line); border-radius:24px; padding:clamp(22px, 2.4vw, 34px); min-height: 480px;
+  /* Removed the hardcoded min-height so cards don't look stretched */
+  .card { display:flex; flex-direction:column; background:var(--card); border:1px solid var(--line); border-radius:24px; padding:clamp(22px, 2.4vw, 34px);
     box-shadow:0 10px 30px rgba(0,0,0,.45); transition:transform .25s, border-color .25s, box-shadow .25s; }
   .card:hover { transform:translateY(-6px); border-color:rgba(232,84,30,.55); box-shadow:0 18px 44px rgba(232,84,30,.12), 0 10px 30px rgba(0,0,0,.6); }
   .icon { width:62px; height:62px; display:grid; place-items:center; border-radius:18px; color:var(--orange);
@@ -47,11 +48,11 @@
   .tool { margin:26px 0 6px; font-size:11px; font-weight:700; letter-spacing:.25em; color:var(--orange); }
   .card h2 { margin:0; font-size:24px; letter-spacing:-.01em; }
   .card h2::after { content:''; display:block; width:40px; height:2px; background:var(--orange); margin-top:14px; }
-  /* Removed flex:1 from p so it doesn't artificially stretch the text block */
-  .card p { margin:18px 0 28px; color:var(--muted); font-size:14.5px; }
   
-  /* Added margin-top: auto to push the button to the bottom of the taller cards */
-  .btn { display:flex; align-items:center; justify-content:space-between; gap:12px; background:#fff; color:#111; border-radius:12px; padding:15px 20px; margin-top: auto;
+  /* Restored flex:1 so the button sits naturally at the bottom without stretching the card box */
+  .card p { margin:18px 0 28px; color:var(--muted); font-size:14.5px; flex:1; }
+  
+  .btn { display:flex; align-items:center; justify-content:space-between; gap:12px; background:#fff; color:#111; border-radius:12px; padding:15px 20px;
     font-weight:600; font-size:15px; transition:background .2s, color .2s, transform .2s; }
   .btn svg { transition:transform .2s; }
   .btn:hover, .btn:focus-visible { background:var(--orange); color:#fff; outline:none; }
@@ -71,7 +72,6 @@
 
 <header class="site-header">
   <div class="wrap bar">
-    <!-- Removed Logo Section -->
     <nav aria-label="Main">
       <ul>
         <li><a href="#" aria-current="page">All Tools</a></li>
